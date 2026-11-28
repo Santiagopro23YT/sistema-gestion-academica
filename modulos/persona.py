@@ -28,4 +28,4 @@ class Persona(ABC):
         ...
 
     def _informacion_personal(self) -> str:
-        return f"{self.obtener_rol()} {self.__nombre} | Documento: {self.documento} | Edad: {self.__edad}"
+        return f"{self.obtener_rol()} {self.__nombre} - Documento: {self.documento} - Edad: {self.__edad}"

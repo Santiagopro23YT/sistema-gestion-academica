@@ -25,6 +25,6 @@ class Profesor(Persona):
 
     def mostrar_informacion(self) -> str:
         return (
-            f"{self._informacion_personal()} | Profesión: {self.__profesion} "
-            f"| Código: {self.codigo} | Especialidad: {self.__especialidad}"
+            f"{self._informacion_personal()} - Profesión: {self.__profesion} "
+            f"- Código: {self.codigo} - Especialidad: {self.__especialidad}"
         )
