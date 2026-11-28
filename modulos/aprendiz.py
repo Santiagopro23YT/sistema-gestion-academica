@@ -16,4 +16,4 @@ class Aprendiz(Persona):
         return "Aprendiz"
 
     def mostrar_informacion(self):
-        return f"{self._informacion_personal()} | Contacto: {self.__contacto}"
+        return f"{self._informacion_personal()} - Contacto: {self.__contacto}"

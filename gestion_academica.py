@@ -194,7 +194,7 @@ def imprimir_personas(lista):
 
 def mostrar_curso(curso):
     print(
-        f"{curso.codigo} | {curso.nombre} | {curso.modalidad} | {curso.duracion_horas} horas\n"
+        f"{curso.codigo} - {curso.nombre} - {curso.modalidad} - {curso.duracion_horas} horas\n"
         f"  Descripción: {curso.descripcion}\n"
         f"  Responsable: {curso.profesor.mostrar_informacion()}"
     )
@@ -207,16 +207,16 @@ def mostrar_rendimiento(inscripcion):
     promedio, resultado = inscripcion.evaluar()
     promedio_texto = f"{promedio:.2f}" if promedio is not None else "Pendiente"
     print(
-        f"{inscripcion.curso.codigo} | {inscripcion.curso.nombre} | "
-        f"{inscripcion.fecha.isoformat()} | {inscripcion.estado}\n"
+        f"{inscripcion.curso.codigo} - {inscripcion.curso.nombre} - "
+        f"{inscripcion.fecha.isoformat()} - {inscripcion.estado}\n"
         f"  {inscripcion.aprendiz.mostrar_informacion()}\n"
-        f"  Calificaciones: {notas} | Promedio: {promedio_texto} | Resultado: {resultado}"
+        f"  Calificaciones: {notas} - Promedio: {promedio_texto} - Resultado: {resultado}"
     )
 
 
 def menu_profesores(sistema):
     while True:
-        print("\n--- PROFESORES ---")
+        print("\n Profesores")
         print("1. Registrar profesor")
         print("2. Listar profesores")
         print("3. Buscar por documento")
@@ -249,7 +249,7 @@ def menu_profesores(sistema):
 
 def menu_aprendices(sistema):
     while True:
-        print("\n--- APRENDICES ---")
+        print("\n Aprendices")
         print("1. Registrar aprendiz")
         print("2. Listar aprendices")
         print("3. Buscar por documento")
@@ -280,7 +280,7 @@ def menu_aprendices(sistema):
 
 def menu_cursos(sistema):
     while True:
-        print("\n--- CURSOS ---")
+        print("\n Cursos")
         print("1. Registrar curso y asignar profesor")
         print("2. Listar cursos")
         print("3. Consultar por código")
@@ -314,7 +314,7 @@ def menu_cursos(sistema):
 
 def menu_inscripciones(sistema):
     while True:
-        print("\n--- INSCRIPCIONES ---")
+        print("\n Inscripciones")
         print("1. Inscribir aprendiz")
         print("2. Ver cursos de un aprendiz")
         print("3. Ver aprendices de un curso")
@@ -332,13 +332,13 @@ def menu_inscripciones(sistema):
                 if not lista:
                     print("No hay inscripciones.")
                 for ins in lista:
-                    print(f"{ins.curso.codigo} | {ins.curso.nombre} | {ins.fecha.isoformat()} | {ins.estado}")
+                    print(f"{ins.curso.codigo} - {ins.curso.nombre} - {ins.fecha.isoformat()} - {ins.estado}")
             elif op == "3":
                 lista = sistema.aprendices_por_curso(pedir_texto("Código del curso"))
                 if not lista:
                     print("No hay aprendices inscritos.")
                 for ins in lista:
-                    print(f"{ins.aprendiz.mostrar_informacion()} | {ins.fecha.isoformat()} | {ins.estado}")
+                    print(f"{ins.aprendiz.mostrar_informacion()} - {ins.fecha.isoformat()} - {ins.estado}")
             elif op == "0":
                 break
             else:
@@ -356,7 +356,7 @@ def menu_profesor_responsable(sistema):
         return
 
     while True:
-        print(f"\n--- {profesor.mostrar_informacion()} ---")
+        print(f"\n {profesor.mostrar_informacion()} ")
         print("1. Consultar mis cursos")
         print("2. Consultar aprendices de un curso mío")
         print("3. Registrar calificación")
@@ -383,7 +383,7 @@ def menu_profesor_responsable(sistema):
                     if not lista:
                         print("No hay aprendices inscritos.")
                     for ins in lista:
-                        print(f"{ins.aprendiz.mostrar_informacion()} | {ins.fecha.isoformat()} | {ins.estado}")
+                        print(f"{ins.aprendiz.mostrar_informacion()} - {ins.fecha.isoformat()} - {ins.estado}")
                 elif op == "3":
                     doc_ap = pedir_texto("Documento del aprendiz")
                     sistema.registrar_nota(doc_ap, cod, pedir_nota())
@@ -443,7 +443,7 @@ def main():
     )
 
     while True:
-        print("\n=== SISTEMA DE GESTIÓN ACADÉMICA ===")
+        print("\n Super sistema de gestion academica: ")
         print("1. Profesores")
         print("2. Aprendices")
         print("3. Cursos")
